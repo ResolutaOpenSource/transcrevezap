@@ -12,18 +12,18 @@ services:
       - 8005:8005  # Porta para FastAPI
       - 8501:8501  # Porta para Streamlit
     environment:
-      - UVICORN_PORT=8005
-      - UVICORN_HOST=0.0.0.0
-      - UVICORN_RELOAD=true
-      - UVICORN_WORKERS=1
-      - API_DOMAIN=seu.dominio.com   #coloque seu subdominio da API apontado aqui
-      - DEBUG_MODE=false
-      - LOG_LEVEL=INFO
-      - MANAGER_USER=seu_usuario_admin   # Defina Usuário do Manager
-      - MANAGER_PASSWORD=sua_senha_segura   # Defina Senha do Manager
-      - REDIS_HOST=redis-transcrevezap
-      - REDIS_PORT=6380 # Porta personalizada para o Redis do TranscreveZAP
-      - REDIS_DB=0  # Opcional: pode ser removida para usar o valor padrão
+      - UVICORN_PORT=${UVICORN_PORT:-8005}
+      - UVICORN_HOST=${UVICORN_HOST:-0.0.0.0}
+      - UVICORN_RELOAD=${UVICORN_RELOAD:-true}
+      - UVICORN_WORKERS=${UVICORN_WORKERS:-1}
+      - API_DOMAIN=${API_DOMAIN:-localhost}
+      - DEBUG_MODE=${DEBUG_MODE:-false}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - MANAGER_USER=${MANAGER_USER:-seu_usuario_admin}
+      - MANAGER_PASSWORD=${MANAGER_PASSWORD:-sua_senha_segura}
+      - REDIS_HOST=${REDIS_HOST:-redis-transcrevezap}
+      - REDIS_PORT=${REDIS_PORT:-6380}
+      - REDIS_DB=${REDIS_DB:-0}
       # Autenticação Redis (opcional - descomente se necessário, se estiver usando autenticação)
       # - REDIS_USERNAME=${REDIS_USERNAME:-}  # Nome do usuário definido no comando do Redis
       # - REDIS_PASSWORD=${REDIS_PASSWORD:-}  # Senha definida no comando do Redis (sem o '>')
