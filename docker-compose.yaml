@@ -1,4 +1,7 @@
-version: "3.7"
+#-------------------------------------------------
+# Crie a rede externa antes de subir os serviços:
+#   docker network create sua_rede_externa
+#-------------------------------------------------
 
 services:
   tcaudio:
